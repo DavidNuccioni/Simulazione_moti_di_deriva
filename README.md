@@ -60,6 +60,7 @@ Per ottenere il codice della simulazione, digitare nel terminale la seguente rig
 
 ```bash
 git clone https://github.com/DavidNuccioni/PROGETTO_MCF.git
+```
 
 ---
 ## Obiettivo e fisica della simulazione
