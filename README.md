@@ -113,7 +113,7 @@ Il programma ha tre diverse modalità di esecuzione, ognuna in base al tipo di d
 
  * **Default**: Modalità in cui la funzione esegue la simulazione per $1000$ particelle con velocità iniziali e cariche casuali. L'utente dovrà configurare il valore di $B_z$ e delle componente del campo $E$ o $\nabla B$ in base al tipo di drift scelto. Il programma restituisce l'analisi dati del modulo della velocità media di deriva con errore e confronto teorico. I dati ricavati in questa modalità possono essere salvati tramite argomento `--save`. 
  Non serve nessun argomento per attivare la modalità ma basta solo scegliere il tipo di drift.
- Esempio di utilizzo della modalità di default, nella directory /Simulazione, digitare:
+ Esempio di utilizzo della modalità di default, nella directory `/Simulazione`, digitare:
  ```bash
  Python3 main.py --drE --save
  ```
@@ -122,13 +122,13 @@ Il programma ha tre diverse modalità di esecuzione, ognuna in base al tipo di d
  * **Traiettoria**: Modalità in cui il progrmma ricava le traiettorie di $5$ particelle con il drift scelto come argomento. Anche qui si deve configurare il campo $E$ o $\nabla B$ e $B_z$. Il risultato della simulazione mostrerà i plot dell traiettorie e alcuni informazioni sui parametri scelti per la simulazione e i valori delle velocità di deriva ricavata confrontati con i valori teorici attesi. Questa modalità è utile per provare diverse configurazioni di campi, $B_z$, numero di passi etc. Se infatti la simulazione non fornirà dei risultati soddisfacenti, si potranno configurare meglio prima di prendere e salvare i dati tramite modalità default.
  I dati ricavati in questa modalità non possono essere salvati.
  L'argomento per attivare la modalità default è: `--tra`.
- Esempio di utilizzo della modalità traiettoria, nella directory /Simulazione, digitare:
+ Esempio di utilizzo della modalità traiettoria, nella directory `/Simulazione`, digitare:
  ```bash
  Python3 main.py --drG --tra
  ``` 
  Il comando esegue la simulazione per il drift $\nabla B$ in modalità traiettoria con $5$ particelle.
  
- * **Analisi dati**: Modalità in cui il programma non esegue la simulazione dei moti di deriva ma calcola soltanto il fit lineare per il drift scelto, sulla base dei dati salvati nel file: drift_data.csv. L'utente non deve configurare nulla ma dovrà accertarsi dell'esistenza nella cartella /Simulazione del file dei dati e che questo ne contenga qualcuno. I dati provengono dalla modalità di default, basta quindi eseguire la simulazione per un drift in questa modalità, con l'argomento `--save` per creare il file se non dovesse essere presente.
+ * **Analisi dati**: Modalità in cui il programma non esegue la simulazione dei moti di deriva ma calcola soltanto il fit lineare per il drift scelto, sulla base dei dati salvati nel file: drift_data.csv. L'utente non deve configurare nulla ma dovrà accertarsi dell'esistenza nella cartella `/Simulazione` del file dei dati e che questo ne contenga qualcuno. I dati provengono dalla modalità di default, basta quindi eseguire la simulazione per un drift in questa modalità, con l'argomento `--save` per creare il file se non dovesse essere presente.
  Il risultato della modalità e la stampa del fit lineare dei dati con le relative informazioni.
  I dati ricavati in questa modalità non possono essere salvati.
  L'argomento per attivare la modalità default è: `--data`.
@@ -158,7 +158,7 @@ Quando viene eseguito il programma, vengono stampati dei valori consigliati per 
  
  $$N=\frac{2\pi m}{qBdt}$$
 
-Dove $dt=1\cdot10^{-6}s$.
+ dove $dt=1\cdot10^{-6}s$.
 
 ---
 # Esempi di utilizzo
@@ -193,15 +193,17 @@ Esegue il programma in modalità analisi dati per il drift del campo elettrico
 
 Alcune combinazioni di argomenti potrebbero portare a un errato utilizzo del programma e pertanto questo non funzionerà. 
 
- * Scegliere come argomento sia --drE che --drG, non può essere fatto, si deve infatti scegliere un solo tipo di drift. In generale, la scelta di un solo drift è obbligatoria per ognuna delle modalità di esecuzione del programma.
+ * Scegliere come argomento sia `--drE` che `--drG`, non può essere fatto, si deve infatti scegliere un solo tipo di drift. In generale, la scelta di un solo drift è obbligatoria per ognuna delle modalità di esecuzione del programma.
 
  * Non è possibile salvare i risultati per la modalità traiettoria o analisi dati, il salvataggio viene fatto solo per i dati della modalità di default poiché sono necessari per la parte dell'analisi dati.
  
- * L'argomento --turb e --step funziona non funziona per la parte di analisi dati.
+ * L'argomento `--turb` e `--step` funziona non funziona per la parte di analisi dati.
  
  * **!MOLTO IMPORTANTE!**: Per avere un'analisi dati ottimale è necessario avere lo stesso valore per tutte le misurazioni effettuate del valore $B_z$ e del numero di passi. Quando vengono salvati i dati della simulazione del file e vengono successivamente letti dalla funzione apposita in modalità analisi dati, questa si accerterà della seguente condizione. Se i dati avranno valori diversi per questi parametri non sarà possibile eseguire l'analisi dati per il drift selezionato. Sarà necessario o cancellare le righe interessate dal file o cancellare il file direttamente tramite l'argomento apposito. Si consiglia pertanto di prestare attenzione quando si salvano i dati della simulazione di avere sempre $B_z$ e il numero di passi uguale per ogni siumulazione del drift scelto.
  
- * Il file drift_data.csv contiene già $5$ misurazioni per ogni tipo di drift con diverse configurazioni di campi. Si può utilizzare da subito l'argomento --data. Se si vogliono prendere altre misurazioni si consiglia di utilizzare $B_z=8e-4$ e $step = 3000$, altrimenti --data non funzionerà.
+ * Il file drift_data.csv contiene già $5$ misurazioni per ogni tipo di drift con diverse configurazioni di campi. Si può utilizzare da subito l'argomento --data. Se si vogliono prendere altre misurazioni si consiglia di utilizzare $B_z=8e-4$ e $step = 3000$, altrimenti `--data` non funzionerà.
+ 
+ * Per eseguire il programma si deve utilizzare solo il file main.py, gli altri script servono e vengono utilizzati da quest'ultimo e non sono da eseguire. 
 
 
 
