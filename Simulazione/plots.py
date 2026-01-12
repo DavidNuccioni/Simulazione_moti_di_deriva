@@ -64,7 +64,7 @@ def plots_tra(position, guide_cn):
         ax2.plot(r_gc[:,0], r_gc[:,1], lw=2, color=c[p])
    
     # Disegna l'origine delle traiettorie
-    ax2.scatter(0.0, 0.0, color='red', s=30, label=(f'Inizio'))
+    ax2.scatter(r[0][0], r[0][1], color='red', s=30, label=(f'Inizio'))
 
     ax2.set_xlabel('x[m]')
     ax2.set_ylabel('y[m]')
