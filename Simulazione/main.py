@@ -390,12 +390,13 @@ def simulation():
 
         # Creazioni di array per contenere i dati 
         position = np.zeros((N_par, N, 3))
-        velocity = np.zeros((N_par, N, 3))
+        #velocity = np.zeros((N_par, N, 3))
         guide_cn = np.zeros((N_par, n_orb, 3))
         v_drift  = np.zeros((N_par, 3))
         v_drift_th = np.zeros((N_par, 3))
         velocity_0 = np.zeros((N_par, 3))
         r_Larmor = np.zeros(N_par)
+        q_part = np.zeros(N_par)
     
     except ZeroDivisionError:
         
@@ -440,7 +441,7 @@ def simulation():
             #--------------------------------------------------------------
             
             # Calcolo della traiettoria e della velocità della particella
-            r, v = dm.drift(N, dt, B, E, B_grad, qm_tra, v0, n_t)
+            r = dm.drift(N, dt, B, E, B_grad, qm_tra, v0, n_t)
 
             # Calcolo della traiettoria del centro di guida
             r_gc = dm.guide_center(r, n_orb, steps_orb)
@@ -450,12 +451,13 @@ def simulation():
             
             # Salvataggio dei dati negli array
             position[p] = r
-            velocity[p] = v
+            #velocity[p] = v
             guide_cn[p] = r_gc
             v_drift[p] = v_d_vec
             v_drift_th[p] = v_d_th_vec
             r_Larmor[p] = r_L 
             velocity_0[p] = v0
+            q_part[p] = qm_tra
         #--------------------------------------------------------------
         print(f"\nSimulazione completata!")  
     
@@ -501,6 +503,7 @@ def simulation():
             
             v_str = ", ".join(f"{comp:.2e}" for comp in velocity_0[i])
             print(f"Particella {i+1}:")
+            print(f"Carica della particella:     {q_part[i]:.2e} [C]")
             print(f"Velocità iniziale: [{v_str}] [m/s]")
             print(f"Raggio di Larmor:            {r_Larmor[i]:.2f} [m]")
             print(f"Velocità di drift calcolata: {np.linalg.norm(v_drift[i]):.2f} [m/s]")

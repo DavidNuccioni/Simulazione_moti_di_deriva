@@ -22,7 +22,6 @@ def drift(N, dt, B, E, B_grad, qm, v0, n_t):
     Ritorna:
     --------
     r   : Array delle posizioni della particella ad ogni passo [m]
-    v   : Array delle velocità della particella ad ogni passo [m/s]
     """
 
     # Inizializzazione arrray posizione e velocità
@@ -69,7 +68,7 @@ def drift(N, dt, B, E, B_grad, qm, v0, n_t):
         r[n+1] = r[n] + v[n+1] * dt
     #------------------------------------------------------------
 
-    return r, v
+    return r
 
 
 def guide_center(r, n_orb, steps_orb):
@@ -118,8 +117,7 @@ def v_drift(r_gc, n_orb, T_orb, B_hat):
 
     Ritorna:
     --------
-    v_d    : Valore della velocità di drift ricavata [m/s]
-    v_d_th : Valore della velocità di drift teorica [m/s]
+    v_d_vec    : Valore della velocità di drift ricavata [m/s]
     """
     
     # Calcolo della velocità del centro di guida
