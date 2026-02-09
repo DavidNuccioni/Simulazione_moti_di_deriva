@@ -59,7 +59,7 @@ Cartella contenti i codici e dati utilizzati per la simulazione, nello specifico
 Per ottenere il codice della simulazione, digitare nel terminale la seguente riga di comando:
 
 ```bash
-git clone https://github.com/DavidNuccioni/PROGETTO_MCF.git
+git clone https://github.com/DavidNuccioni/Simulazione_moti_di_deriva.git
 ```
 
 Il comando clonerà nella posizione della directory corrente la cartella PROGETTO_MCF.
