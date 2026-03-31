@@ -86,7 +86,7 @@ La capacità della simulazione, nel riprodurre dei risultati veritieri, è stata
 ---
 # Argomenti del programma
 
-Il programma permete di essere seguito con degli argomenti tramite la libreria argparse. La lista completa degli argomenti utilizzabili è la seguente:
+Il programma permete di essere eseguito con degli argomenti tramite la libreria argparse. La lista completa degli argomenti utilizzabili è la seguente:
 
  * **drE**: Esegue la simulazione per il drift dato da $E \times B$
  
